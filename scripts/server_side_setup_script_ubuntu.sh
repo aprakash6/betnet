@@ -22,4 +22,10 @@ mysql -u root -pbetnet -e "flush priveleges;"
 mysql -u root -pbetnet -e "select * from USERS;" 
 #mysql -u root -pbetnet -e "" 
 
+# Install flask and flask socetIO
+sudo apt-get install -y python python-pip python-virtualenv nginx gunicorn
+sudo pip install flask
+sudo pip install flask-socketio
 
+# Setup mongo database and the various collections
+sh mongo_setup.sh
