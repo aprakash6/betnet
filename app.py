@@ -50,7 +50,10 @@ thread = None
 
 class Database:
 
-  #VM
+    #localhost
+    #host = '127.0.0.1'
+
+    #VM
     #host = '128.104.159.183'
 
     #RAW PC - Limited
@@ -124,8 +127,7 @@ def addUser():
   if not result:
     queryString = "INSERT into USERS VALUES('"+email+"', '"+username+"', '"+password+"' , 3)"
     result      = db.insert(queryString)
-  else:
-    return render_template('index.html', user=username)
+  return render_template('index.html', user=username)
 
 
 
@@ -199,4 +201,4 @@ def test_disconnect():
 
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=True, host='0.0.0.0')
